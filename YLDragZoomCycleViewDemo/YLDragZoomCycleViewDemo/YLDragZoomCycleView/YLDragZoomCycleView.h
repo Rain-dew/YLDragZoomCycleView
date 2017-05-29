@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YLDroagViewDelegate <NSObject>
+@optional
+/*
+ *  点击了第几个item?
+ */
+- (void)didSelectedItem:(NSInteger)item;
+@end
+
 @interface YLDragZoomCycleView : UIView
 
 /*   页面控制器  可在外部以此控件。直接修改其外观设置
  */
 @property(nonatomic, strong) UIPageControl *pageControl;
+
+
+@property(nonatomic, assign) id<YLDroagViewDelegate> delegate;
 
 /*  初始化方法
  *  dataSource:储存图片链接数组

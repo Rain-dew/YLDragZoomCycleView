@@ -10,7 +10,7 @@
 #import "UIView+YLView.h"
 #import "YLDragZoomCycleView.h"
 #import "GKFadeNavigationController.h"
-@interface YLSecondViewController ()<UITableViewDelegate, UITableViewDataSource,GKFadeNavigationControllerDelegate>
+@interface YLSecondViewController ()<UITableViewDelegate, UITableViewDataSource,GKFadeNavigationControllerDelegate,YLDroagViewDelegate>
 @property(nonatomic, strong) YLDragZoomCycleView *dragView;
 @property(nonatomic, strong) UITableView *tableView;
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
@@ -57,6 +57,7 @@
 
     //创建轮播图
     self.dragView = [[YLDragZoomCycleView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderHeight) andDataSource:[self getimageSource] autoScroll:YES scrollInterval:2];
+    self.dragView.delegate = self;
     [self.view addSubview:self.dragView];
     
     //设置导航栏自动隐藏  下面的代码请放在方法的最后  否则影响导航栏判断
@@ -64,6 +65,11 @@
     [navigationController setNeedsNavigationBarVisibilityUpdateAnimated:NO];
     self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
 
+}
+
+- (void)didSelectedItem:(NSInteger)item {
+    
+    NSLog(@"选择了第%ld张图片",item+1);
 }
 
 #pragma mark -- UITableViewDelegate, UITableViewDataSource

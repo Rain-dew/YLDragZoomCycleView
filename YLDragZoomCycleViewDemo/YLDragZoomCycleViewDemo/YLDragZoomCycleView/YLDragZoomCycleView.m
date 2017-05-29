@@ -88,7 +88,6 @@
   
     
     if (offset < 0) {
-        
         NSDictionary *dic = @{@"offset" : [NSString stringWithFormat:@"%f",offset]};
         [[NSNotificationCenter defaultCenter] postNotificationName:@"changeSize" object:nil userInfo:dic];
         //更新layout
@@ -99,14 +98,12 @@
         self.height = self.initHeight;
         self.y = 0;
         self.height = self.initHeight - offset;
-
     }else {
         self.y = 0;
         CGFloat minOffset = self.height;
         self.y = minOffset > offset ? - offset : - minOffset;
 
     }
-    
     self.collectionView.height = self.height;
     self.pageControl.y = self.height - kPageControH;
 }
@@ -120,6 +117,12 @@
     YLZoomCycleViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
     cell.imageURL = self.dataSource[indexPath.item % self.dataSource.count];
     return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectedItem:)]) {
+        [self.delegate didSelectedItem:indexPath.item % self.dataSource.count];
+    }
+
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint offset = scrollView.contentOffset;
