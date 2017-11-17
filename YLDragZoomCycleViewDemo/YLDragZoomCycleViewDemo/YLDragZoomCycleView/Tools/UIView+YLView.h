@@ -15,35 +15,35 @@
 
 #pragma mark - Frame
 // 视图原点
-@property (nonatomic, assign) CGPoint origin;
+@property (nonatomic, assign) CGPoint yl_origin;
 // 视图尺寸
-@property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGSize yl_size;
 
 #pragma mark - Frame Origin
 // frame 原点 x 值
-@property(nonatomic, assign) CGFloat x;
+@property(nonatomic, assign) CGFloat yl_x;
 
 // frame 原点 y 值
-@property (nonatomic, assign) CGFloat y;
+@property (nonatomic, assign) CGFloat yl_y;
 
 #pragma mark - Frame Size
 // frame 尺寸 width
-@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat yl_width;
 // frame 尺寸 height
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) CGFloat yl_height;
 
 #pragma mark - other frame
 
 //x
-@property (nonatomic, assign) CGFloat minX;
-@property (nonatomic, assign) CGFloat maxX;
-@property (nonatomic, assign) CGFloat midX;
-@property (nonatomic, assign) CGFloat centerX;
+@property (nonatomic, assign) CGFloat yl_minX;
+@property (nonatomic, assign) CGFloat yl_maxX;
+@property (nonatomic, assign) CGFloat yl_midX;
+@property (nonatomic, assign) CGFloat yl_centerX;
 //y
-@property (nonatomic, assign) CGFloat minY;
-@property (nonatomic, assign) CGFloat maxY;
-@property (nonatomic, assign) CGFloat midY;
-@property (nonatomic, assign) CGFloat centerY;
+@property (nonatomic, assign) CGFloat yl_minY;
+@property (nonatomic, assign) CGFloat yl_maxY;
+@property (nonatomic, assign) CGFloat yl_midY;
+@property (nonatomic, assign) CGFloat yl_centerY;
 
 
 

@@ -15,10 +15,8 @@
 
 @property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 @property (nonatomic, strong) UIView *fakeNavigationBarBackground;
-
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (nonatomic, strong) UIColor *originalTintColor;
-
 @end
 
 
@@ -135,7 +133,7 @@
         shadowView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2f];
         shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        [self.visualEffectView addSubview:shadowView];
+//        [self.visualEffectView addSubview:shadowView];
     }
     
     return _visualEffectView;
