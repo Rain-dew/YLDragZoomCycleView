@@ -3,8 +3,11 @@
 ### 如何使用？
 ```Objective-C
    //创建轮播图
-    self.dragView = [[YLDragZoomCycleView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kHeaderHeight) andDataSource:[self getimageSource] autoScroll:YES scrollInterval:2];
-    [self.view addSubview:self.dragView];
+   self.dragView = [[YLDragZoomCycleView alloc] initWithFrame:CGRectMake(0, 0, self.view.yl_width, kHeaderHeight) andAutoScroll:YES scrollInterval:2];
+    self.dragView.delegate = self;
+    self.dragView.dataSource = [self getimageSource];
+    [self.tableView addSubview:self.dragView];
+    
 ```
 同时你必须实现滚动试图的代理方法，并且调用几个函数。格式如下
 ```Objective-C
